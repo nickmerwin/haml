@@ -1,5 +1,5 @@
 begin
-  if ENV['COVERALLS']
+  if ENV['TRAVIS'] && RUBY_VERSION == '2.1.10' && !defined?(Rubinius)
     require 'coveralls'
     Coveralls.wear_merged!
   end
