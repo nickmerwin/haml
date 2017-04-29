@@ -13,6 +13,9 @@ task :test do
   end || raise('Failures')
 end
 
+require 'coveralls/rake/task'
+Coveralls::RakeTask.new
+
 CLEAN.replace %w(pkg doc coverage .yardoc test/haml vendor)
 
 desc "Benchmark Haml against ERB. TIMES=n sets the number of runs, default is 1000."
