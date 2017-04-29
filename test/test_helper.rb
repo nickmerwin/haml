@@ -1,7 +1,7 @@
 begin
   if ENV['TRAVIS'] && RUBY_VERSION == '2.1.10' && !defined?(Rubinius)
     require 'coveralls'
-    Coveralls.wear!
+    Coveralls.wear_merged!
   end
 rescue LoadError
   # ignore error for other test Gemfiles
