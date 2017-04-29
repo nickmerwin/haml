@@ -15,8 +15,11 @@ end
 
 require 'coveralls/rake/task'
 Coveralls::RakeTask.new
+ENV['COVERALLS'] = 'true' if ENV['TRAVIS'] && RUBY_VERSION == '2.1.10' && !defined?(Rubinius)
 
-CLEAN.replace %w(pkg doc coverage .yardoc test/haml vendor)
+clean_paths = %w(pkg doc coverage .yardoc test/haml vendor)
+clean_paths.push "coverage" unless ENV["COVERALLS"]
+CLEAN.replace clean_paths
 
 desc "Benchmark Haml against ERB. TIMES=n sets the number of runs, default is 1000."
 task :benchmark do

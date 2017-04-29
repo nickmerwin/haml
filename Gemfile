@@ -15,4 +15,5 @@ end
 
 platform :mri_21 do
   gem "simplecov"
+  gem "coveralls"
 end
