@@ -36,4 +36,4 @@ matrix:
     - rvm: rbx-3
   fast_finish: true
 script: "bundle exec rake submodules test"
-after_script: "if [ $RUBY_VERSION = '2.1.10' ]; then bundle exec rake coveralls:push; fi"
+after_script: "bundle exec rake coveralls:push"
